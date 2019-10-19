@@ -3,22 +3,14 @@ package com.sun.toy;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.sun.toy.adapters.AdapterFrgCalendar;
 import com.sun.toy.adapters.AdapterRcvSimple;
-import com.sun.toy.view.Builder;
 import com.sun.toy.view.SimpleViewBinder;
-
 import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static com.sun.toy.R.id.rcv;
 
 public class MultiCalendarActivity extends BaseActivity implements FrgCalendar.OnFragmentListener {
 
@@ -71,20 +63,20 @@ public class MultiCalendarActivity extends BaseActivity implements FrgCalendar.O
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
-            public void onPageSelected(int position) {
+            public void onPageSelected(int position) {//페이지 변경시
                 String title = adapter.getMonthDisplayed(position);
                 getSupportActionBar().setTitle(title);
 
                 if (position == 0) {
                     adapter.addPrev();
-                    pager.setCurrentItem(COUNT_PAGE, false);
+                    pager.setCurrentItem(COUNT_PAGE, true);
+
                 } else if (position == adapter.getCount() - 1) {
                     adapter.addNext();
-                    pager.setCurrentItem(adapter.getCount() - (COUNT_PAGE + 1), false);
+                    pager.setCurrentItem(adapter.getCount() - (COUNT_PAGE + 1), true);
                 }
             }
 
@@ -93,13 +85,14 @@ public class MultiCalendarActivity extends BaseActivity implements FrgCalendar.O
 
             }
         });
+
         adapterHourLine = new AdapterRcvSimple(R.layout.item_rcv_simple);
         SimpleViewBinder.RecyclerViewBuilder builder =  new SimpleViewBinder.RecyclerViewBuilder(getWindow()).setAdapter(adapterHourLine, getSupportFragmentManager()).setList(mList);
         rcv = builder.build();
     }
 
     @Override
-    public void onFragmentListener(View view) {
+    public void onFragmentListener(View view) {//FragmentListener은 Fragment의 높이를 조절하는 Listener
         resizeHeight(view);
     }
 
@@ -124,7 +117,7 @@ public class MultiCalendarActivity extends BaseActivity implements FrgCalendar.O
                 pager.setLayoutParams(layoutParams);
             }
         });
-        anim.setDuration(200);
+        anim.setDuration(2000);
         anim.start();
     }
 }

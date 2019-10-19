@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-calendar.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-calendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/ToyCalendar.iml" filepath="$PROJECT_DIR$/ToyCalendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/calendar.iml" filepath="$PROJECT_DIR$/calendar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/calendar.iml" filepath="$PROJECT_DIR$/calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/calendar-app.iml" filepath="$PROJECT_DIR$/app/calendar-app.iml" />
     </modules>
   </component>
 </project>

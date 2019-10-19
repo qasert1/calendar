@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,7 +34,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void initControl() {
-        super.initControl();
+
         btnSingleCalendar.setOnClickListener(this);
         btnMultiCalendar.setOnClickListener(this);
     }

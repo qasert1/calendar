@@ -16,6 +16,12 @@ public class SingleCalendarActivity extends BaseActivity {
 
     private CalendarView calendarView;
 
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,7 @@ public class SingleCalendarActivity extends BaseActivity {
     public void initView() {
         calendarView = (CalendarView) findViewById(R.id.calendarview);
         calendarView.setDate(System.currentTimeMillis());
+
         initCalendar();
     }
 

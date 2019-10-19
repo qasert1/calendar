@@ -26,9 +26,10 @@ public class AdapterFrgCalendar extends FragmentStatePagerAdapter {
     private FrgCalendar.OnFragmentListener onFragmentListener;
 
     public AdapterFrgCalendar(FragmentManager fm) {
-        super(fm);
+        super(fm);//부모 클래스의 생성자가 호출되고 난 후에 자식의 생성자가 호출된다는 것을 명시적으로
+        // 나타냄.
         clearPrevFragments(fm);
-        frgMap = new HashMap<Integer, FrgCalendar>();
+        frgMap = new HashMap<Integer, FrgCalendar>();//key-value
     }
 
     private void clearPrevFragments(FragmentManager fm) {
@@ -46,9 +47,10 @@ public class AdapterFrgCalendar extends FragmentStatePagerAdapter {
         }
     }
 
-    @Override
+    @Override//여기에 넘기면서 자동으로 달력이 계산되게 할 수 있는 비밀이 있지 않을까?
     public Fragment getItem(int position) {
-        FrgCalendar frg = null;
+        FrgCalendar frg = null;//변수는 있으나 가리키는 대상이 없음.
+
         if (frgMap.size() > 0) {
             frg = frgMap.get(position);
         }

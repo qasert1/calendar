@@ -67,6 +67,7 @@ public class CalendarItemView extends View {
         mPaintBackground.setColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
         mPaintBackgroundToday.setColor(ContextCompat.getColor(getContext(), R.color.today));
         mPaintBackgroundEvent.setColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+
         setClickable(true);
         setOnTouchListener(new OnTouchListener() {
             @Override
@@ -116,6 +117,7 @@ public class CalendarItemView extends View {
         super.onLayout(changed, left, top, right, bottom);
     }
 
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onDraw(Canvas canvas) {
@@ -124,6 +126,7 @@ public class CalendarItemView extends View {
         int yPos = (int) ((canvas.getHeight() / 2) - ((mPaint.descent() + mPaint.ascent()) / 2));
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(millis);
+
 
         CalendarView calendarView = (CalendarView) getParent();
         if (calendarView.getParent() instanceof ViewPager) {

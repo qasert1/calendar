@@ -35,8 +35,10 @@ import java.util.Locale;
  * Created by hnhariat on 2015-10-15.
  */
 public class CalendarView extends ViewGroup {
+    final static String TAG = "cur";
     private final int mScreenWidth;
     private final int mWidthDate;
+
     private long mMillis;
     /**
      * 1일의 요일
@@ -49,17 +51,18 @@ public class CalendarView extends ViewGroup {
 
     private int mDefaultTextSize = 40;
 
-    private int mTextColor = Color.BLUE;
+    //  private int mTextColor = Color.BLUE;
 
-    private Paint mPaint = makePaint(mTextColor);
-    private Paint mTestPaint = makePaint(mTextColor);
+    // private Paint mPaint = makePaint(mTextColor);
+    //  private Paint mTestPaint = makePaint(mTextColor);
 
-    public CalendarItemView mCurrentSelectedView = null;
+   // public CalendarItemView mCurrentSelectedView = null;
 
     public static String[] DAY_OF_WEEK = null;
 
     public CalendarView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         mScreenWidth = getResources().getDisplayMetrics().widthPixels;
         mWidthDate = mScreenWidth / 7;
         DAY_OF_WEEK = getResources().getStringArray(R.array.day_of_week);
@@ -74,19 +77,19 @@ public class CalendarView extends ViewGroup {
         int childState = 0;
         int mLeftWidth = 0;
         int rowCount = 0;
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(mMillis);
 
         for (int i = 0; i < count; i++) {
             final View child = getChildAt(i);
 
-            if (child.getVisibility() == GONE)
+            if (child.getVisibility() == INVISIBLE)
                 continue;
 
             // Measure the child.
             measureChild(child, widthMeasureSpec, heightMeasureSpec);
             maxWidth += Math.max(maxWidth, child.getMeasuredWidth());
             mLeftWidth += child.getMeasuredWidth();
+
+
 
             if ((mLeftWidth / mScreenWidth) > rowCount) {
                 maxHeight += child.getMeasuredHeight();

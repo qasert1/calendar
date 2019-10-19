@@ -9,7 +9,7 @@ import com.sun.toy.R;
 
 /**
  * Created by hatti on 2016-04-22.
- */
+ */ //MultiCalendar에서 아래 Fragment에 일정 넣는 Adapter
 public class AdapterRcvSimple extends AdapterRCVBase {
 
     public AdapterRcvSimple() {
